@@ -13,6 +13,7 @@ import javax.persistence.MappedSuperclass;
  *
  * @author Admin
  */
+//
 @MappedSuperclass
 public class EntitetJP25 {
     @Id
