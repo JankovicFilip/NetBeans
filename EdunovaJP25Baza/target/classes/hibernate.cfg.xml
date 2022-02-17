@@ -47,6 +47,7 @@
         <mapping class="edunova.edunovajp25baza.Predavac" />
         <mapping class="edunova.edunovajp25baza.Smjer" />
         <mapping class="edunova.edunovajp25baza.Grupa" />
+        
 
 
         

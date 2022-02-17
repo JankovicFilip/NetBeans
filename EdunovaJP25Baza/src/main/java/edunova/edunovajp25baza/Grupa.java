@@ -18,6 +18,7 @@ import javax.persistence.ManyToOne;
  *
  * @author Admin
  */
+//
 @Entity
 public class Grupa extends EntitetJP25 {
     
