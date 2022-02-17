@@ -10,6 +10,7 @@ import javax.persistence.Entity;
  *
  * @author Admin
  */
+//
 @Entity
 public class Polaznik extends Osoba{
     
