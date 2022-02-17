@@ -12,6 +12,7 @@ import javax.persistence.MappedSuperclass;
  *
  * @author Admin
  */
+//
 @MappedSuperclass
 public abstract class Osoba extends EntitetJP25{
     private String ime;
