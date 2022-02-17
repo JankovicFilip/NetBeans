@@ -6,7 +6,7 @@ package edunova.edunovajp25baza;
 
 import java.math.BigDecimal;
 import javax.persistence.Entity;
-
+//
 /**
  *
  * @author Admin
