@@ -10,6 +10,7 @@ import javax.persistence.Entity;
  *
  * @author Admin
  */
+//
 @Entity
 public class Predavac extends Osoba{
     
