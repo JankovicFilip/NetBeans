@@ -7,6 +7,8 @@ package edunova.model;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
@@ -20,11 +22,19 @@ public class Grupa extends Entitet {
     private String naziv;
     
     @ManyToOne
+    @JoinColumn(name = "predavac")
     private Predavac predavac;
     
     private Date datumPocetka;
     @ManyToOne
+    @JoinColumn(name = "smjer")
     private Smjer smjer;
+    
+    @ManyToMany
+    @JoinTable(name = "Clan",
+            joinColumns = @JoinColumn(name = "grupa"),
+            inverseJoinColumns = @JoinColumn(name = "polaznik"))
+    private List<Polaznik> polaznici;
 
     public Smjer getSmjer() {
         return smjer;
@@ -34,8 +44,7 @@ public class Grupa extends Entitet {
         this.smjer = smjer;
     }
     
-    @ManyToMany
-    private List<Polaznik> polaznici;
+    
 
     public String getNaziv() {
         return naziv;
