@@ -4,6 +4,7 @@
  */
 package edunova.model;
 
+import com.sun.istack.NotNull;
 import javax.persistence.MappedSuperclass;
 
 /**
@@ -12,10 +13,15 @@ import javax.persistence.MappedSuperclass;
  */
 @MappedSuperclass
 public abstract class Kupac extends Entitet{
+    @NotNull
     private String ime;
+    @NotNull
     private String prezime;
+    @NotNull
     private String email;
+    @NotNull
     private String adresa;
+    @NotNull
     private String brojTelefona;
     
     
