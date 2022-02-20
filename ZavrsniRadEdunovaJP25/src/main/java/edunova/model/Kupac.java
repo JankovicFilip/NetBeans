@@ -5,24 +5,67 @@
 package edunova.model;
 
 import com.sun.istack.NotNull;
+import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.MappedSuperclass;
 
 /**
  *
  * @author Admin
  */
-@MappedSuperclass
+
+@Entity
 public abstract class Kupac extends Entitet{
-    @NotNull
+    @Column(nullable = false)
     private String ime;
-    @NotNull
+    @Column(nullable = false)
     private String prezime;
-    @NotNull
+    @Column(nullable = false)
     private String email;
-    @NotNull
+    @Column(nullable = false)
     private String adresa;
-    @NotNull
+    
     private String brojTelefona;
+
+    public String getIme() {
+        return ime;
+    }
+
+    public void setIme(String ime) {
+        this.ime = ime;
+    }
+
+    public String getPrezime() {
+        return prezime;
+    }
+
+    public void setPrezime(String prezime) {
+        this.prezime = prezime;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getAdresa() {
+        return adresa;
+    }
+
+    public void setAdresa(String adresa) {
+        this.adresa = adresa;
+    }
+
+    public String getBrojTelefona() {
+        return brojTelefona;
+    }
+
+    public void setBrojTelefona(String brojTelefona) {
+        this.brojTelefona = brojTelefona;
+    }
     
     
     
