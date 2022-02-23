@@ -8,6 +8,8 @@ import edunova.model.vjezbanje.osnovno.Mobitel;
 import edunova.model.vjezbanje.veze.Mjesto;
 import edunova.model.vjezbanje.veze.Opcina;
 import edunova.util.HibernateUtil;
+import edunova.util.PocetniInsert;
+import edunova.util.Test2;
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
@@ -39,8 +41,10 @@ public class Start {
     private Session session;
     
    public Start() {
-       this.session = HibernateUtil.getSession();
+       //this.session = HibernateUtil.getSession();
        
+       //PocetniInsert.izvedi();
+       Test2.izvedi2();
        
        //procitajOpcine();
        

@@ -5,6 +5,8 @@
 package edunova.util;
 
 import com.github.javafaker.Faker;
+import edunova.controller.ObradaSmjer;
+import edunova.model.Smjer;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.URL;
@@ -16,6 +18,8 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Random;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.hibernate.sql.ordering.antlr.GeneratedOrderByFragmentParser;
 import org.hibernate.sql.ordering.antlr.GeneratedOrderByFragmentRendererTokenTypes;
 import org.jsoup.Jsoup;
@@ -27,10 +31,27 @@ import us.codecraft.xsoup.Xsoup;
  * @author Admin
  */
 public class Test {
+
     public static void main(String[] args) {
-        Faker faker = new Faker();
-       
-        /* LOSIJI NACIN, BOLJI JE SET
+
+        Smjer s = new Smjer();
+        s.setNaziv("Java programiranje");
+        s.setTrajanje(130);
+        ObradaSmjer os = new ObradaSmjer();
+        os.setEntitet(s);
+        try {
+
+            os.create();
+        } catch (EdunovaException ex) {
+            System.out.println(ex.getPoruka());
+        }
+
+    }
+
+}
+
+//Faker faker = new Faker();
+/* LOSIJI NACIN, BOLJI JE SET
         
         
        List<String> piva = new ArrayList<>();
@@ -47,8 +68,9 @@ public class Test {
        Collections.sort(piva);
        piva.forEach(p->System.out.println(p));
        
-        */
-        Set<String> pivaSet = new HashSet<>();
+ */
+ /*
+Set<String> pivaSet = new HashSet<>();
         while(pivaSet.size()<25) {
             pivaSet.add(faker.beer().name());
         }
@@ -64,7 +86,7 @@ public class Test {
             URL yahoo = new URL("http://oib.itcentrala.com/oib-generator/");
         BufferedReader in = new BufferedReader(
             new InputStreamReader(
-            yahoo.openStream()));
+                    yahoo.openStream()));
 
            String inputLine;
             StringBuilder sb = new StringBuilder();
@@ -80,14 +102,4 @@ public class Test {
         } 
         catch (Exception e) {
         }
-        
-
-
-
-
-        
-        
-    }
-   
-    
-}
+ */
