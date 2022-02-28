@@ -6,6 +6,7 @@ package edunova.util;
 
 import com.github.javafaker.Faker;
 import edunova.model.Grupa;
+import edunova.model.Operater;
 import edunova.model.Polaznik;
 import edunova.model.Predavac;
 import edunova.model.Smjer;
@@ -16,12 +17,27 @@ import java.util.Date;
 import java.util.List;
 import org.hibernate.Hibernate;
 import org.hibernate.Session;
+import org.mindrot.jbcrypt.BCrypt;
 
 /**
  *
  * @author Admin
  */
 public class PocetniInsert {
+
+    public static void unosOperatera() {
+        Session session = HibernateUtil.getSession();
+        session.beginTransaction();
+
+        Operater o = new Operater();
+        o.setIme("Eduard");
+        o.setPrezime("Kuzma");
+        o.setEmail("edunova@edunova.hr");
+        o.setLozinka(BCrypt.hashpw("e", BCrypt.gensalt()));
+        session.save(o);
+        session.getTransaction().commit();
+
+    }
 
     public static void izvedi() {
         Session session = HibernateUtil.getSession();

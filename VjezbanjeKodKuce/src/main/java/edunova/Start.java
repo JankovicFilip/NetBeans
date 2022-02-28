@@ -4,12 +4,20 @@
  */
 package edunova;
 
+import edunova.controller.ObradaGrupa;
+import edunova.controller.ObradaPredavac;
+import edunova.model.Entitet;
+import edunova.model.Grupa;
+import edunova.model.Polaznik;
+import edunova.model.Predavac;
 import edunova.model.vjezbanje.osnovno.Mobitel;
 import edunova.model.vjezbanje.veze.Mjesto;
 import edunova.model.vjezbanje.veze.Opcina;
+import edunova.util.EdunovaException;
 import edunova.util.HibernateUtil;
 import edunova.util.PocetniInsert;
 import edunova.util.Test2;
+import java.awt.SplashScreen;
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
@@ -41,14 +49,43 @@ public class Start {
     private Session session;
     
    public Start() {
+       
        //this.session = HibernateUtil.getSession();
        
        //PocetniInsert.izvedi();
-       Test2.izvedi2();
+       //Test2.izvedi2();
+       /*
+       Predavac predavac = new Predavac();
+       predavac.setOib("");
+       predavac.setIban("");
+       predavac.setIme("Ana");
+       predavac.setPrezime("Ana@Osjecka");
+       predavac.setEmail("Ana iz Osijeka");
+       ObradaPredavac op = new ObradaPredavac();
+       op.setEntitet(predavac);
+       try{
+           op.create();
+       } catch(EdunovaException ex) {
+           System.out.println(ex.getPoruka());
+       }
+        */
+      /* List<Grupa> grupe = new ObradaGrupa().read();
+       
+       for(Grupa g: grupe){
+           System.out.println(g.getNaziv() + " - " + g.getSmjer().getNaziv() + ": " + 
+                   g.getPredavac().getIme() + " " + g.getPredavac().getPrezime());
+           for(Polaznik p: g.getPolaznici()){
+               System.out.println(p.getIme() + " "  + p.getPrezime());
+           }
+          
+       }*/
        
        //procitajOpcine();
        
        //primjerRadaSVezama();
+   }
+   private void  vjezbanjeCitanjePodataka(){
+       
    }
         
       
@@ -106,7 +143,10 @@ public class Start {
         
     
             public static void main(String[] args) {
-        new Start();
+        
+                PocetniInsert.unosOperatera();
+        //new Start();
+        //new edunova.view.SplashScreen().setVisible(true);
     }
 
      

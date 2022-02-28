@@ -47,6 +47,7 @@
         <mapping class="edunova.model.Predavac" />
         <mapping class="edunova.model.Smjer" />
         <mapping class="edunova.model.Grupa" />
+        <mapping class="edunova.model.Operater" />
         
     </session-factory>
 </hibernate-configuration>

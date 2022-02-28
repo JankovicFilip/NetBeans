@@ -7,6 +7,7 @@ package edunova.util;
 import edunova.model.Polaznik;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import org.hibernate.Session;
 
 /**
@@ -26,4 +27,10 @@ public class Test2 {
         Session session = HibernateUtil.getSession();
         List<Polaznik> polaznici = testPolaznike(session);
     }
+    
+    /*public static void main(String[] args) {
+        Random random = new Random();
+        Long x = random.nextLong(99999999999L);
+        System.out.println(x);
+    }*/
 }

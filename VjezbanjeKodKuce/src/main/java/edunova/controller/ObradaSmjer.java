@@ -6,6 +6,7 @@ package edunova.controller;
 
 import edunova.model.Smjer;
 import edunova.util.EdunovaException;
+import java.math.BigDecimal;
 import java.util.List;
 
 /**
@@ -16,21 +17,26 @@ public class ObradaSmjer extends Obrada<Smjer> {
 
     @Override
     public List<Smjer> read() {
-        return session.createQuery("from smjer").list();
+        return session.createQuery("from Smjer").list();
     }
 
     @Override
     protected void kontrolaCreate() throws EdunovaException {
         kontrolaNaziv();
         kontrolaTrajanje();
+        kontrolaCijena();
     }
 
     @Override
     protected void kontrolaUpdate() throws EdunovaException {
+        kontrolaNaziv();
+        kontrolaTrajanje();
+        kontrolaCijena();
     }
 
     @Override
     protected void kontrolaDelete() throws EdunovaException {
+        
     }
 
     private void kontrolaNaziv() throws EdunovaException {
@@ -47,6 +53,13 @@ public class ObradaSmjer extends Obrada<Smjer> {
     private void kontrolaTrajanje() throws EdunovaException {
         if (entitet.getTrajanje()==null || entitet.getTrajanje() < 0) {
             throw new EdunovaException("Trajanje mora biti postavljeno i ne smije biti manje od 0!!!");
+        }
+    }
+
+    private void kontrolaCijena() throws EdunovaException{
+        if(entitet.getCijena() == null || entitet.getCijena().compareTo(BigDecimal.ZERO)<0
+                || entitet.getCijena().compareTo(new BigDecimal(10000))>0) {
+            throw new EdunovaException ("Cijena mora biti veca od 0 i manja od 10000!!!");
         }
     }
 
